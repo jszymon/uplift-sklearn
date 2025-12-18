@@ -19,9 +19,9 @@ sys.path.insert(0, os.path.abspath('..'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'uplift_sklearn'
-copyright = '2019, Szymon Jaroszewicz'
-author = 'Szymon Jaroszewicz'
+project = 'uplift-sklearn'
+copyright = '2025, Szymon Jaroszewicz'
+author = 'Szymon Jaroszewicz, Krzysztof Rudaś'
 
 # The short X.Y version
 version = '0.1'
@@ -42,9 +42,19 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.viewcode',
     'sphinx.ext.todo',
-    'sphinx.ext.autosummary',
+    #'sphinx.ext.autosummary',
+    'autoapi.extension',
     'numpydoc'
 ]
+#autosummary_generate = True
+autoapi_dirs = ['../usklearn']
+autoapi_ignore = ['*_data*']
+def skip_members_hook(app, what, name, obj, skip, options):
+    if "ARCHIVE" in name:
+        skip = True
+    return skip
+def setup(sphinx):
+    sphinx.connect("autoapi-skip-member", skip_members_hook)
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -79,7 +89,9 @@ pygments_style = None
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'alabaster'
+html_theme = "pydata_sphinx_theme"
+#html_theme = 'alabaster'
+#html_theme = 'sphinx_rtd_theme'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -90,7 +102,8 @@ html_theme = 'alabaster'
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+#html_static_path = ['_static']
+html_static_path = []
 
 # Custom sidebar templates, must be a dictionary that maps document names
 # to template names.
@@ -143,7 +156,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'uplift_sklearn', 'uplift_sklearn Documentation',
+    (master_doc, 'uplift-sklearn', 'uplift-sklearn Documentation',
      [author], 1)
 ]
 
@@ -154,8 +167,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'uplift_sklearn', 'uplift_sklearn Documentation',
-     author, 'uplift_sklearn', 'One line description of project.',
+    (master_doc, 'uplift-sklearn', 'uplift-sklearn Documentation',
+     author, 'uplift-sklearn', 'One line description of project.',
      'Miscellaneous'),
 ]
 

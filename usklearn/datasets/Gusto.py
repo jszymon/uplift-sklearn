@@ -63,7 +63,7 @@ def fetch_GUSTO(include_location_vars=True, include_ttr=False,
     https://www.clinicalpredictionmodels.org/extra-material/chapter-22
 
     Changes to the original dataset
-    ---------------------------
+    -------------------------------
     reverse the hyp indicator variable such that 1 corresponds to sysbp >= 100
     removed tpa an indicator of tPA treatment (can be inferred from tx)
     removed ant variable which is an indicator anterior MI (included in miloc)
@@ -82,7 +82,7 @@ def fetch_GUSTO(include_location_vars=True, include_ttr=False,
     grps is a refinement regl
 
     Variables
-    ----------
+    ---------
     day30 (target): death within 30 days
     sho: whether cardiac shock was present
     hig: indicator of non-anterior MI location

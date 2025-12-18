@@ -1,11 +1,10 @@
-"""The Lalonde datasets.
+"""The Lalonde (jobs) datasets.
 
 There are two versions of the dataset, including 1974 earnings
 (version B) and excluding 1974 earnings (vestion A).
 """
 
 
-import logging
 from os.path import dirname, exists, join
 from os import remove, makedirs
 import csv
@@ -42,8 +41,6 @@ ARCHIVE_B_C = RemoteFileMetadata(
     checksum=('a1364cea459d953dc691a667d99194b4'
               'ad335d6d550354fe23a5d2dc58d729b5'))
 
-logger = logging.getLogger(__name__)
-
 
 def fetch_Lalonde(version="A", data_home=None,
                   categ_as_strings=False,
@@ -61,8 +58,8 @@ def fetch_Lalonde(version="A", data_home=None,
     Parameters
     ----------
     version : string, optional
-        Specify which dataset to return.  ``A'' for larger files
-        without 1974 earnings, ``B'' for smaller files with 1974
+        Specify which dataset to return.  'A' for larger files
+        without 1974 earnings, 'B' for smaller files with 1974
         earnings.
 
     data_home : string, optional
