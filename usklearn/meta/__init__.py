@@ -1,4 +1,5 @@
-"""Meta models: uplift models combined of classifiers/regressors."""
+"""Meta models: uplift models based on standard
+classifiers/regressors."""
 
 from .multi_model import MultimodelUpliftRegressor
 from .multi_model import MultimodelUpliftClassifier

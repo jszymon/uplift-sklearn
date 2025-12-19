@@ -62,54 +62,81 @@ def fetch_GUSTO(include_location_vars=True, include_ttr=False,
     the book
     https://www.clinicalpredictionmodels.org/extra-material/chapter-22
 
-    Changes to the original dataset
-    -------------------------------
-    reverse the hyp indicator variable such that 1 corresponds to sysbp >= 100
-    removed tpa an indicator of tPA treatment (can be inferred from tx)
-    removed ant variable which is an indicator anterior MI (included in miloc)
-    change pmi to {0,1} binary indicator
-    subtract 1 from htn to make it {0,1} binary indicator
-    subtract 1 from pan to make it {0,1} binary indicator
-    subtract 1 from fam to make it {0,1} binary indicator
+    **Variables**
 
-    Functional dependencies
-    -----------------------
-    sho can be inferred from Killip
-    hrt can be inferred from pulse
-    hyp can be inferred from sysbp >= 100 (except 5 cases)
-    hig: there is a functional dependency: hig=0 -> miloc=Anterior
-    grpl is a refinement regl
-    grps is a refinement regl
+    day30 (target)
+        death within 30 days
+    sho
+        whether cardiac shock was present
+    hig
+        indicator of non-anterior MI location
+    dia
+        diabetes
+    hyp
+        high blood pressure indicator, seems to indicate sysbp >= 100 (5 exceptions)
+    hrt
+        tachycardia (indicator of pulse>80)
+    ttr
+        Time To Relief of chest pain > 1h
+    sex
+        patient's sex
+    Killip
+        Killip Class (I, II, III, IV)
+    age
+        patient's age [years]
+    ste
+        mumber of ECG leads with ST Elevation
+    pulse
+        Heart Rate [beats/min]
+    sysbp
+        Systolic Blood Pressure [mmHg]
+    miloc
+        MI Location (Inferior, Anterior, Other)
+    height
+        patient's height [cm]
+    weight
+        patient's weight [ckg]
+    pmi
+        previous MI
+    htn
+        history of hypertension
+    smk
+        smoking (never quit current)
+    pan
+        previous angina pectoris
+    fam
+        family history of MI
+    prevcvd
+        previous cardiovascular disease
+    prevcabg
+        previous coronary artery bypass graft surgery
+    regl
+        region (probably country)
+    grpl
+        location code 2, refinement of regl
+    grps
+        location code 3, refinement of regl
+    tx
+        treatment (SK, SK+tPA, tPA)
 
-    Variables
-    ---------
-    day30 (target): death within 30 days
-    sho: whether cardiac shock was present
-    hig: indicator of non-anterior MI location
-    dia: diabetes
-    hyp: high blood pressure indicator, seems to indicate sysbp >= 100 (5 exceptions)
-    hrt: tachycardia (indicator of pulse>80)
-    ttr: Time To Relief of chest pain > 1h
-    sex: patient's sex
-    Killip: Killip Class (I, II, III, IV)
-    age: patient's age [years]
-    ste: mumber of ECG leads with ST Elevation
-    pulse: Heart Rate [beats/min]
-    sysbp: Systolic Blood Pressure [mmHg]
-    miloc: MI Location (Inferior, Anterior, Other)
-    height: patient's height [cm]
-    weight: patient's weight [ckg]
-    pmi: previous MI
-    htn: history of hypertension
-    smk: smoking (never quit current)
-    pan: previous angina pectoris
-    fam: family history of MI
-    prevcvd: previous cardiovascular disease
-    prevcabg: previous coronary artery bypass graft surgery
-    regl: region (probably country)
-    grpl: location code 2, refinement of regl
-    grps: location code 3, refinement of regl
-    tx: treatment (SK, SK+tPA, tPA)
+    **Changes to the original dataset**
+
+    - reverse the hyp indicator variable such that 1 corresponds to sysbp >= 100
+    - removed tpa an indicator of tPA treatment (can be inferred from tx)
+    - removed ant variable which is an indicator anterior MI (included in miloc)
+    - change pmi to {0,1} binary indicator
+    - subtract 1 from htn to make it {0,1} binary indicator
+    - subtract 1 from pan to make it {0,1} binary indicator
+    - subtract 1 from fam to make it {0,1} binary indicator
+
+    **Functional dependencies**
+
+    - sho can be inferred from Killip
+    - hrt can be inferred from pulse
+    - hyp can be inferred from sysbp >= 100 (except 5 cases)
+    - hig: there is a functional dependency: hig=0 -> miloc=Anterior
+    - grpl is a refinement regl
+    - grps is a refinement regl
 
     Parameters
     ----------

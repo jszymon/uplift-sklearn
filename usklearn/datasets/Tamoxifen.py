@@ -20,18 +20,18 @@ def fetch_Tamoxifen(data_home=None, download_if_missing=True,
 
     Use a local copy of the data.
 
-    Targets:
-    --------
-    target_surv_time: survival time
-    target_surv_status: 1=death
-    target_loctime: 
-    target_lcens: 1=local relapse
-    target_axltime: time to axillary relapse
-    target_acens: 1=axillary relapse
-    target_distime: time to distance relapse
-    target_dcens: 1=distance relapse
-    target_maltime: time to second malignancy
-    target_mcens: 1=second malignancy
+    **Targets**
+
+    - target_surv_time: survival time
+    - target_surv_status: 1=death
+    - target_loctime: 
+    - target_lcens: 1=local relapse
+    - target_axltime: time to axillary relapse
+    - target_acens: 1=axillary relapse
+    - target_distime: time to distance relapse
+    - target_dcens: 1=distance relapse
+    - target_maltime: time to second malignancy
+    - target_mcens: 1=second malignancy
 
     Parameters
     ----------

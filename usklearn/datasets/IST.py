@@ -58,23 +58,23 @@ def fetch_IST(include_pilot=True,
     target_HTI14, target_PE14, target_DVT14, target_TRAN14,
     target_NCB14
 
-    Variables
-    ----------
+    **Variables**
+
     See https://datashare.ed.ac.uk/handle/10283/128 
     
-    Changes to the original dataset
-    ---------------------------
-    only pretreatment variables, variables describing outcomes at 14
-        days and 6 month outcome code are included
-    change all N/Y variables to 0/1
-    level H of RXHEP recoded as M for pilot study cases
-    add var IS_PILOT indicating pilot study obtained by testing if
-        RHEP24 is NaN.  The variable is only added if include_pilot is
-        True.
-    RDATE variable has been split into RYEAR and RMONTH, month names
-        have been translated to English
-    recoded OCCODE to descriptive values, merge two "missing status"
-        categories to "NA"
+    **Changes to the original dataset**
+
+    - Only pretreatment variables, variables describing outcomes at 14
+      days and 6 month outcome code are included
+    - Change all N/Y variables to 0/1
+    - Level H of RXHEP recoded as M for pilot study cases
+    - Add var IS_PILOT indicating pilot study obtained by testing if
+      RHEP24 is NaN.  The variable is only added if include_pilot is
+      True.
+    - RDATE variable has been split into RYEAR and RMONTH, month names
+      have been translated to English
+    - Recoded OCCODE to descriptive values, merge two "missing status"
+      categories to "NA"
 
     Parameters
     ----------

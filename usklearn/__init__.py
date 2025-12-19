@@ -1,4 +1,3 @@
 """
-Uplift modeling in scikit-learn
-===============================
+Uplift modeling in scikit-learn.
 """

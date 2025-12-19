@@ -24,13 +24,25 @@ class _BaseUpliftMixin:
         self.trt_, self.n_trt_ = trt, n_trt
 
 class UpliftRegressorMixin(_BaseUpliftMixin, RegressorMixin):
+    """Mixin class for all uplift regression estimators in
+    uplift-sklearn."""
+
     _estimator_type = "regressor"
     _uplift_model = True
 
     def score(self, X, y, trt, n_trt=None, sample_weight=None):
+        """Score test data.
+
+        By default difference between model predicted and sample ATE
+        is returned (e_sate).
+
+        """
         return -e_sate(y, self.predict(X), trt, n_trt=self.n_trt_)
 
 class UpliftClassifierMixin(_BaseUpliftMixin, ClassifierMixin):
+    """Mixin class for all uplift classification estimators in
+    uplift-sklearn."""
+
     _estimator_type = "classifier"
     _uplift_model = True
 
@@ -39,7 +51,7 @@ class UpliftClassifierMixin(_BaseUpliftMixin, ClassifierMixin):
 
         Only supported for binary classification or when pos_label is
         set.  pos_label must be an intereger between 0 and
-        self.n_classes_-1.
+        ``self.n_classes_-1``.
 
         """
         if pos_label is None and self.n_classes_ > 2:
@@ -68,6 +80,12 @@ class UpliftClassifierMixin(_BaseUpliftMixin, ClassifierMixin):
         self.classes_ = unique_labels(y)
         self.n_classes_ = len(self.classes_)
     def score(self, X, y, trt, n_trt=None, sample_weight=None):
+        """Score test data.
+
+        By default difference between model predicted and sample ATE
+        is returned (e_sate).
+
+        """
         return -e_sate(y, self.predict(X), trt, n_trt=self.n_trt_)
 
 

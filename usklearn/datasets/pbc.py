@@ -32,7 +32,9 @@ def fetch_pbc(data_home=None, download_if_missing=True,
         untreated or successfully treated, 1 edema despite diuretic
         therapy
 
-    Variables: chol, copper, trig, platelet contain missing data
+    **Variables**
+
+    chol, copper, trig, platelet contain missing data
     
     Parameters
     ----------

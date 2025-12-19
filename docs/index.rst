@@ -10,10 +10,6 @@ Welcome to uplift-sklearn's documentation!
    :maxdepth: 1
    :caption: Contents:
 
-   test
-   api_reference
-.. :hidden:
-
 .. usklearn
 
 

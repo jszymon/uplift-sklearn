@@ -85,11 +85,13 @@ class UpliftMetaModelBase(_BaseComposition):
         return self
     def get_params(self, deep=True):
         """Get parameters for this estimator.
+
         Parameters
         ----------
         deep : boolean, optional
             If True, will return the parameters for this estimator and
             contained subobjects that are estimators.
+
         Returns
         -------
         params : mapping of string to any
@@ -100,7 +102,9 @@ class UpliftMetaModelBase(_BaseComposition):
         return self._get_params('base_estimator', deep=deep)
     def set_params(self, **kwargs):
         """Set the parameters of this estimator.
+
         Valid parameter keys can be listed with ``get_params()``.
+
         Returns
         -------
         self

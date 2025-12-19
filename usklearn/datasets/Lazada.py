@@ -38,13 +38,13 @@ def fetch_Lazada(version="test", data_home=None, download_if_missing=True,
     Details of the dataset can be found in the following paper:
     https://arxiv.org/pdf/2207.09920.
 
-    The license is available at https://github.com/jszymon/uplift_sklearn_data/releases/download/Lazada/Lazada_LICENSE
+    The license is available `here <https://github.com/jszymon/uplift_sklearn_data/releases/download/Lazada/Lazada_LICENSE>`__
 
     Parameters
     ----------
     version : string, optional
-        Specify whether to return training (``train'') or testing
-        (``test'') dataset.  Test dataset comes from a randomized
+        Specify whether to return training ('train') or testing
+        ('test') dataset.  Test dataset comes from a randomized
         experiment, in the training set assignment is biased.
 
     data_home : string, optional

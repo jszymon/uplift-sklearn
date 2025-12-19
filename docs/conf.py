@@ -48,9 +48,19 @@ extensions = [
 ]
 #autosummary_generate = True
 autoapi_dirs = ['../usklearn']
-autoapi_ignore = ['*_data*']
+autoapi_options = ['members',
+                   'undoc-members',
+                   #'private-members',
+                   'show-inheritance',
+                   'show-module-summary',
+                   'special-members',
+                   #'imported-members',
+                   ]
+autoapi_ignore = ['*_data*', '*robinson*', '*pipeline*', '*preprocessing*']
 def skip_members_hook(app, what, name, obj, skip, options):
     if "ARCHIVE" in name:
+        skip = True
+    if what == "attribute":
         skip = True
     return skip
 def setup(sphinx):

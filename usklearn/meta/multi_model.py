@@ -133,7 +133,7 @@ class TLearnerUpliftClassifier(MultimodelUpliftClassifier):
     pass
 
 class MultimodelUpliftLinearRegressor(MultimodelUpliftRegressor, LinearModel):
-    """Uplift regressor with coef_ and intercept_ fields."""
+    """Uplift regressor with ``coef_`` and ``intercept_`` fields."""
     def fit(self, *args, **kwargs):
         super().fit(*args, **kwargs)
         self._set_coef()
@@ -141,7 +141,7 @@ class MultimodelUpliftLinearRegressor(MultimodelUpliftRegressor, LinearModel):
     def _set_coef(self):
         if not hasattr(self.models_[0][1], "coef_"):
             raise RuntimeError("Base estimator for multi-linear"
-                                   " model must set coef_ attribute")
+                               " model must set coef_ attribute")
         c0 = self.models_[0][1].coef_
         i0 = self.models_[0][1].intercept_
         coef = np.empty((self.n_trt_, len(c0)))
@@ -181,7 +181,6 @@ class MultimodelUpliftLinearRegressorJamesSeparate(MultimodelUpliftRegressor, Li
             coef_alli = np.concatenate((np.array([ii2]),ci))
             alphai = (1-(self.p-3)*self.sigma[i+1]**2/((coef_alli-np.mean(coef_alli))@self.X_2[i+1]@(coef_alli-np.mean(coef_alli))))
             ui = alphai*ci - alpha0*c0
-            #print(c0)
             ii = alphai*ii2 - alpha0*i0
             coef[i,:] = ui
             intercept[i] = ii
@@ -212,7 +211,6 @@ class MultimodelUpliftLinearRegressorJamesU(MultimodelUpliftRegressor, LinearMod
             ci = self.models_[i+1][1].coef_
             ii2 = self.models_[i+1][1].intercept_
             ui = ci - c0
-            #print(c0)
             ii = ii2 - i0
             coef_all = np.concatenate((np.array([ii]),ui))
             alpha = (1-(self.p-3)/((coef_all -np.mean(coef_all))@np.linalg.pinv(self.sigma[i+1]**2*np.linalg.pinv(self.X_2[i+1])+self.sigma[0]**2*np.linalg.pinv(self.X_2[0]))@(coef_all-np.mean(coef_all))))        

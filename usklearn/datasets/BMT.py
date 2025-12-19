@@ -23,17 +23,17 @@ def fetch_BMT(data_home=None, download_if_missing=True,
     The agvhdgd variable (Grade of acute GVHD) is treated as another
     target.
 
-    Targets:
-    --------
-    target_surv_time: survival time
-    target_surv_status: survival censoring status  1=death
-    target_relapse_time: time to relapse
-    target_relapse_status: 1=relapse
-    target_agvh_time: time to AGVH
-    target_agvh: 1=AGVH
-    target_agvhdgd: AGVH grade 0 (absent) - 4, ordinal scale
-    target_cgvh_time: time to CGVH
-    target_cgvh: 1=CGVH
+    **Targets**
+
+    - target_surv_time: survival time
+    - target_surv_status: survival censoring status  1=death
+    - target_relapse_time: time to relapse
+    - target_relapse_status: 1=relapse
+    - target_agvh_time: time to AGVH
+    - target_agvh: 1=AGVH
+    - target_agvhdgd: AGVH grade 0 (absent) - 4, ordinal scale
+    - target_cgvh_time: time to CGVH
+    - target_cgvh: 1=CGVH
 
 
     

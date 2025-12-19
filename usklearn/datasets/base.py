@@ -21,7 +21,7 @@ from sklearn.utils import Bunch
 from sklearn.utils import check_random_state
 from sklearn.datasets import get_data_home
 
-from . import _data
+import usklearn.datasets._data as _data
 
 RemoteFileMetadata = namedtuple('RemoteFileMetadata',
                                 ['filename', 'url', 'checksum'])

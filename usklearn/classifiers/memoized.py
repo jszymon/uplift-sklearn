@@ -16,17 +16,26 @@ def _do_fit(estimator, model_params, *args, **kwargs):
     return clone(estimator).fit(*args, **kwargs)
 
 class MemoizedClassifier(BaseEstimator):
+    """Creates a memoized version of an estimator.
+
+    Subsequent calls to fit with the same arguments will reuse a
+    prefitted model.
+
+    memory is either a path or a joblib.Memory object.  If None a
+    default path is used: "usklearn_cache" in systems default
+    temporary directory.
+
+    Parameters
+    ----------
+
+    estimator : a scikit-klearn 
+        EstimatClassifier to wrap in a regessor interface.
+
+    memory : a joblib.Memory object, default=None
+    
+    """
+
     def __init__(self, estimator, memory=None):
-        """Creates a memoized version of estimator.
-
-        Subsequent calls to fit with the same arguments will reuse a
-        prefitted model.
-
-        memory is either a path or a joblib.Memory object.  If None a
-        default path is used: "usklearn_cache" in systems default
-        temporary directory.
-
-        """
         self.estimator = estimator
         self.memory = memory
     def fit(self, *args, **kwargs):

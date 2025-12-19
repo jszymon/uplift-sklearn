@@ -46,26 +46,35 @@ def fetch_actg320(data_home=None,
     time/censor: time/censoring to occurrence of AIDS or death
     time_d/censor_d: time/censoring to occurrence of death
 
-    Variable description:
-    ---------------------
-    strat2: CD4 stratum at screening 0: CD4 <= 50, 1: > 50
-    sex: 1 = Male, 2 = Female 
-    raceth: Race/Ethnicity
+    **Variables**
+
+    strat2
+        CD4 stratum at screening 0: CD4 <= 50, 1: > 50
+    sex
+        1 = Male, 2 = Female 
+    raceth
+        Race/Ethnicity:
         1 = White Non-Hispanic
         2 = Black Non-Hispanic
         3 = Hispanic (regardless of race)
         4 = Asian, Pacific Islander 
         5 = American Indian, Alaskan Native
         6 = Other/unknown
-    ivdrug: IV drug use history
+    ivdrug
+        IV drug use history:
         1 = Never
         2 = Currently
         3 = Previously
-    hemophil: Hemophiliac
-    karnof: Karnofsky Performance Scale
-    cd4: Baseline CD4 count [Cells/milliliter]
-    priorzdv: Months of prior ZDV use [months]
-    age: Age at Enrollment [years]
+    hemophil
+        Hemophiliac
+    karnof
+        Karnofsky Performance Scale
+    cd4
+        Baseline CD4 count [Cells/milliliter]
+    priorzdv
+        Months of prior ZDV use [months]
+    age
+        Age at Enrollment [years]
     
     Parameters
     ----------

@@ -484,8 +484,8 @@ def _aggregate_score_dicts(scores):
         List of dicts of the scores for all scorers. This is a flat list,
         assumed originally to be of row major order.
 
-    Example
-    -------
+    Examples
+    --------
 
     >>> scores = [{'a': 1, 'b':10}, {'a': 2, 'b':2}, {'a': 3, 'b':3},
     ...           {'a': 10, 'b': 10}]                         # doctest: +SKIP

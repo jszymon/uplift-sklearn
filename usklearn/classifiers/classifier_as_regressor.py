@@ -8,19 +8,33 @@ By default return predicted probabilities as numeric predictions.
 from sklearn.base import BaseEstimator, RegressorMixin
 
 class ClassifierAsRegressor(BaseEstimator, RegressorMixin):
+    """Wraps a classifier such that it behaves like a regressor.
+
+    The predict method returns by default predicted probability for
+    class specified by ``pos_label`` (default 1).  The method used for
+    prediction can be changed by passing the response_method
+    argument.
+
+    If ``response_method returns a vector`` (e.g. ``decision_function``)
+    ``pos_label`` will be ignored.
+
+    Parameters
+    ----------
+
+    estimator : a scikit-klearn classifier
+        Classifier to wrap in a regessor interface.
+
+    response_method : string, default='predict_proba'
+        Classifier's method to use for making predictions.
+
+    pos_label : integer, default=1
+        Label whose probability should be returned by regressor's
+        predict method.
+
+    """
     def __init__(self, estimator, response_method='predict_proba',
                  pos_label=1):
-        """Wraps a classifier such that it behaves like a regressor.
-
-        The predict method return by default predicted probability for
-        class specified by pos_label (default 1).  The method used for
-        prediction can be changed by passing the response_method
-        argument.
-
-        If response_method return a vector (e.g. decision_function)
-        pos_label will be ignored.
-
-        """
+        super().__init__()
         self.estimator = estimator
         self.response_method = response_method
         self.pos_label = pos_label
