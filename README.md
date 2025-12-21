@@ -160,4 +160,4 @@ We can see that the model is significantly better than random guessing and optim
 
 ## Documenation
 
-TODO
+The documentation is available on [Read the Docs](https://uplift-sklearn.readthedocs.io/en/latest/)

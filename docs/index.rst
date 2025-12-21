@@ -10,8 +10,7 @@ Welcome to uplift-sklearn's documentation!
    :maxdepth: 1
    :caption: Contents:
 
-.. usklearn
-
+   autoapi/index
 
 .. uplift-sklearn documentation master file, created by
    sphinx-quickstart on Thu Dec 11 2025.
@@ -187,7 +186,7 @@ We can see that the model is significantly better than random guessing and optim
 Documentation
 -------------
 
-TODO
+* :doc:`autoapi/index`
 
 Indices and tables
 ==================
