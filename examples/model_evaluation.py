@@ -47,7 +47,11 @@ print("Crossvalidated predictions:")
 print(cross_val_predict(r, X, y, trt, n_trt=1, cv=10))
 
 print("\n\nPermutation based model score")
-score, permutation_scores, pv = permutation_test_score(r, X, y, trt, n_trt=1, cv=10, n_permutations=100, n_jobs=-1)#, scoring="auuc_j")
+score, permutation_scores, pv = permutation_test_score(r, X, y, trt, n_trt=1, cv=10,
+                                                       n_permutations=100, n_jobs=-1,
+                                                       verbose=10,
+                                                       #scoring="auuc"
+                                                       )
 r.fit(X, y, trt, n_trt=1)
 print("score:", r.score(X, y, trt, n_trt=1))
 plt.hist(permutation_scores, density=True, label=f"p-value={pv}")

@@ -277,20 +277,22 @@ def cross_val_predict(estimator, X, y, trt, n_trt=None, groups=None,
 # wrapping y contains only stratification information which is
 # permuted by this function
 
-from sklearn.model_selection import BaseCrossValidator
-class _FixedStrataCV(BaseCrossValidator):
+class _FixedStrataCV:
     """Wrap a crossvalidator such that statification variable is the same
     for each iteration.
     """
-    def __init__(self, cv, strata):
+    def __init__(self, cv, strata, ignore_groups=False):
         self.cv = cv
         self.strata = strata
+        self.ignore_groups = ignore_groups
     def get_n_splits(self, X, y=None, groups=None):
+        if self.ignore_groups:
+            return self.cv.get_n_splits(X=X, y=y)
         return self.cv.get_n_splits(X=X, y=y, groups=groups)
-    def _iter_test_masks(self, X=None, y=None, groups=None):
-        return self.cv._iter_test_masks(X=X, y=self.strata, groups=groups)
-    def _iter_test_indices(self, X=None, y=None, groups=None):
-        return self.cv._iter_test_indices(X=X, y=self.strata, groups=groups)
+    def split(self, X, y=None, groups=None):
+        if self.ignore_groups:
+            return self.cv.split(X=X, y=self.strata)
+        return self.cv.split(X=X, y=self.strata, groups=groups)
 
 class _WrappedUpliftEstimatorOrigY(_WrappedUpliftEstimator):
     """Modification of wrapped uplift estimator which uses original y for
@@ -317,7 +319,9 @@ def permutation_test_score(estimator, X, y, trt, n_trt=None, stratify_on_trt=Tru
     trt, n_trt = check_trt(trt, n_trt)
     # y_stratify is used only for stratification
     cv, y_stratify = uplift_check_cv(cv, y, trt, n_trt, classifier=is_classifier(estimator))
-    wrapped_cv = _FixedStrataCV(cv, y_stratify) # don't permute strata
+    # don't permute strata
+    # don't do group CV if stratify_on_trt is True
+    wrapped_cv = _FixedStrataCV(cv, y_stratify, ignore_groups=stratify_on_trt)
     if stratify_on_trt:
         assert groups is None
         groups = trt
