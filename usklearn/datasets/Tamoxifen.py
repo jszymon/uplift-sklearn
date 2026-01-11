@@ -18,8 +18,10 @@ def fetch_Tamoxifen(data_home=None, download_if_missing=True,
     """Load the Tamoxifen randomized trial dataset from Melania
     Pintilie's book "Competing Risks, A Practical Perspective.
 
-    Use a local copy of the data.
+    The description of the original study can be found in [1]_.
 
+    Uses a local copy of the data.
+    
     **Targets**
 
     - target_surv_time: survival time
@@ -74,6 +76,14 @@ def fetch_Tamoxifen(data_home=None, download_if_missing=True,
 
     (data, target_time, target_status) : tuple if
         ``return_X_y`` is True
+
+    References
+    ----------
+
+    .. [1] A.W. Fyles, et al., "Tamoxifen with or without breast
+       irradiation in women 50 years of age or older with early breast
+       cancer". New England Journal of Medicine, 351(10), 963--970,
+       2004 (https://www.nejm.org/doi/10.1056/NEJMoa040595).
 
     """
 

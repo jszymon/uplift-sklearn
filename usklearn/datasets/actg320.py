@@ -25,11 +25,9 @@ def fetch_actg320(data_home=None,
     Download it if necessary.
 
     This is a randomized clinical trial dataset of various AIDS
-    treatments from
+    treatments from [2]_.
 
-    Hosmer, D.W. and Lemeshow, S. and May, S. (2008) Applied Survival
-    Analysis: Regression Modeling of Time to Event Data: Second
-    Edition, John Wiley and Sons Inc., New York, NY
+    The description of the original study can be found in [1]_.
 
     The main treatment variable indicates whether treatment includes
     IDV.  The treatment_grp variable contains one of four specific
@@ -124,6 +122,19 @@ def fetch_actg320(data_home=None,
         Description of the dataset.
 
     (data, target) : tuple if ``return_X_y`` is True
+
+    References
+    ----------
+
+    .. [1] S.M. Hammer, et al., "A Controlled Trial of Two Nucleoside
+       Analogues plus Indinavir in Persons with Human Immunodeficiency
+       Virus Infection and CD4 Cell Counts of 200 per Cubic Millimeter
+       or Less", New England Journal of Medicine, 337(11), 725--733,
+       1997 (https://www.nejm.org/doi/10.1056/NEJMoa040595).
+
+    .. [2] Hosmer, D.W. and Lemeshow, S. and May, S.,  Applied
+       Survival Analysis: Regression Modeling of Time to Event Data:
+       Second Edition, John Wiley and Sons Inc., New York, NY, 2008.
 
     """
     # dictionaries
