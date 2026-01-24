@@ -22,8 +22,13 @@ def fetch_Starbucks(data_home=None, download_if_missing=True,
                     as_frame=False):
     """Load the Starbucks dataset.
 
-    Download it if necessary.
-
+    Download it if necessary.  There are many versions of this
+    dataset, here the one from
+    https://raw.githubusercontent.com/01KAT1/Marketing-Promotion-Campaign-Uplift-Modelling-Starbucks-Dataset/main/training.csv
+    is used since it is the version used in many uplift modeling
+    papers.  An original version consisting of several tables can be
+    found at https://github.com/Shuniy/starbucks/tree/main
+    
     Parameters
     ----------
     data_home : string, optional
