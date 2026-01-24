@@ -25,9 +25,12 @@ def fetch_Starbucks(data_home=None, download_if_missing=True,
     Download it if necessary.  There are many versions of this
     dataset, here the one from
     https://raw.githubusercontent.com/01KAT1/Marketing-Promotion-Campaign-Uplift-Modelling-Starbucks-Dataset/main/training.csv
-    is used since it is the version used in many uplift modeling
-    papers.  An original version consisting of several tables can be
-    found at https://github.com/Shuniy/starbucks/tree/main
+    is used since it is easy to use and has been used in many uplift
+    modeling papers.  An original version consisting of several tables
+    can be found at https://github.com/Shuniy/starbucks/tree/main
+
+    See also an online post about analyzing the data:
+    https://medium.com/@nesreensada/how-to-build-a-profitable-promotion-strategy-easily-with-uplift-modeling-26b2addc3e46
     
     Parameters
     ----------
