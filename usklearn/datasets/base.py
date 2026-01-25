@@ -242,7 +242,7 @@ def _prepare_final_data(D, shuffle, return_X_y,
     if return_X_y:
         X = D.data
         targets = tuple(D[tn] for tn in D.target_names)
-        trt = D.trt
+        trt = D.treatment
         ret = (X,) + targets + (trt,)
     else:
         ret = D
